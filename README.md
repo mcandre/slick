@@ -4,7 +4,8 @@
 
 ```console
 $ slick -n examples; echo "$?"
-2017/09/14 17:02:20 examples/hello.sh:2:6: reached EOF without closing quote '
+2017/09/14 17:46:09 examples/apples.bash:2:8: arrays are a bash feature
+2017/09/14 17:46:09 examples/hello.sh:2:6: reached EOF without closing quote '
 1
 
 $ slick -help
