@@ -1,11 +1,18 @@
 # slick: a CI-ready shell language syntax checker
 
-# EXAMPLE
+# EXAMPLES
 
 ```console
 $ slick -n examples; echo "$?"
 2017/09/14 17:02:20 examples/hello.sh:2:6: reached EOF without closing quote '
 1
+
+$ slick -help
+  -help
+        Show usage information
+  -n    Validate syntax
+  -version
+        Show version information
 ```
 
 # ABOUT

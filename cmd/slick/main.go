@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"flag"
+	"fmt"
 	"log"
 	"os"
 	"path/filepath"
@@ -10,6 +11,8 @@ import (
 
 	"github.com/mvdan/sh/syntax"
 )
+
+var Version = "0.0.0"
 
 var flagSyntaxCheck = flag.Bool("n", false, "Validate syntax")
 var flagVersion = flag.Bool("version", false, "Show version information")
@@ -81,5 +84,9 @@ func main() {
 		if s.FoundError {
 			os.Exit(1)
 		}
+	case *flagVersion:
+		fmt.Println(Version)
+	case *flagHelp:
+		flag.PrintDefaults()
 	}
 }
