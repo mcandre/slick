@@ -12,6 +12,7 @@ import (
 	"github.com/mvdan/sh/syntax"
 )
 
+// Version of the slick command
 var Version = "0.0.0"
 
 var flagSyntaxCheck = flag.Bool("n", false, "Validate syntax")
@@ -23,7 +24,7 @@ type slicker struct {
 	FoundError bool
 }
 
-func NewSlicker() slicker {
+func newSlicker() slicker {
 	return slicker{
 		Parser: syntax.NewParser(syntax.Variant(syntax.LangPOSIX)),
 	}
@@ -71,7 +72,7 @@ func (o *slicker) Walk(pth string, info os.FileInfo, err error) error {
 func main() {
 	flag.Parse()
 
-	s := NewSlicker()
+	s := newSlicker()
 
 	switch {
 	case *flagSyntaxCheck:
