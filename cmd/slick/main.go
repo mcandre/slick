@@ -13,7 +13,7 @@ import (
 )
 
 // Version of the slick command
-var Version = "0.0.0"
+var Version = "0.0.1"
 
 var flagSyntaxCheck = flag.Bool("n", false, "Validate syntax")
 var flagVersion = flag.Bool("version", false, "Show version information")
