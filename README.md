@@ -53,7 +53,7 @@ $ go get github.com/mcandre/slick/...
 
 ```
 $ mkdir -p $GOPATH/src/github.com/mcandre
-$ git clone git@github.com:mcandre/slick.git $GOPATH/src/github.com/mcandre/slick
+$ git clone https://github.com/mcandre/slick.git $GOPATH/src/github.com/mcandre/slick
 $ cd $GOPATH/src/github.com/mcandre/slick
 $ git submodule update --init --recursive
 $ sh -c 'cd cmd/slick && go install'
