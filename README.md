@@ -58,3 +58,7 @@ $ cd $GOPATH/src/github.com/mcandre/slick
 $ git submodule update --init --recursive
 $ sh -c 'cd cmd/slick && go install'
 ```
+
+# CREDITS
+
+* [mvdan/sh](https://github.com/mvdan/sh) for POSIX sh parsing
