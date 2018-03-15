@@ -46,3 +46,5 @@ bin:
 
 clean-ports:
 	-rm -rf bin
+
+clean: clean-ports
