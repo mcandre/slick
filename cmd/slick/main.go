@@ -9,11 +9,9 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/mcandre/slick"
 	"github.com/mvdan/sh/syntax"
 )
-
-// Version of the slick command
-var Version = "0.0.1"
 
 var flagSyntaxCheck = flag.Bool("n", false, "Validate syntax")
 var flagVersion = flag.Bool("version", false, "Show version information")
@@ -86,7 +84,7 @@ func main() {
 			os.Exit(1)
 		}
 	case *flagVersion:
-		fmt.Println(Version)
+		fmt.Println(slick.Version)
 	case *flagHelp:
 		flag.PrintDefaults()
 	}
