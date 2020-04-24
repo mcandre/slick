@@ -1,6 +1,9 @@
 package main
 
 import (
+	"github.com/mcandre/slick"
+	"mvdan.cc/sh/syntax"
+
 	"bufio"
 	"flag"
 	"fmt"
@@ -8,9 +11,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-
-	"github.com/mcandre/slick"
-	"github.com/mvdan/sh/syntax"
 )
 
 var flagSyntaxCheck = flag.Bool("n", false, "Validate syntax")
