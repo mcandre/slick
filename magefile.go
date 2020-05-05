@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"path"
 
 	"github.com/magefile/mage/mg"
 	"github.com/mcandre/slick"
@@ -88,19 +89,18 @@ var portBasename = fmt.Sprintf("slick-%s", slick.Version)
 // repoNamespace identifies the Go namespace for this project.
 var repoNamespace = "github.com/mcandre/slick"
 
-// Goxcart cross-compiles Go binaries with additional targets enabled.
-func Goxcart() error {
-	return mageextras.Goxcart(
-		artifactsPath,
-		"-repo",
-		repoNamespace,
-		"-banner",
-		portBasename,
+// Xgo cross-compiles (c)Go binaries with additional targets enabled.
+func Xgo() error {
+	artifactsPathDist := path.Join(artifactsPath, portBasename)
+
+	return mageextras.Xgo(
+		artifactsPathDist,
+		"github.com/mcandre/slick/cmd/slick",
 	)
 }
 
 // Port builds and compresses artifacts.
-func Port() error { mg.Deps(Goxcart); return mageextras.Archive(portBasename, artifactsPath) }
+func Port() error { mg.Deps(Xgo); return mageextras.Archive(portBasename, artifactsPath) }
 
 // Install builds and installs Go applications.
 func Install() error { return mageextras.Install() }
