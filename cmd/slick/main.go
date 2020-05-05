@@ -32,7 +32,7 @@ func (o *slicker) Walk(pth string, info os.FileInfo, err error) error {
 	fi, er := os.Stat(pth)
 
 	if er != nil {
-		log.Print(err)
+		log.Print(er)
 		o.FoundError = true
 		return nil
 	}
@@ -50,7 +50,7 @@ func (o *slicker) Walk(pth string, info os.FileInfo, err error) error {
 	fd, er := os.Open(pth)
 
 	if er != nil {
-		log.Print(err)
+		log.Print(er)
 		o.FoundError = true
 		return nil
 	}
