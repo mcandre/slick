@@ -83,6 +83,7 @@ $ mage port
 $ mage lint
 ```
 
-# CREDITS
+# SEE ALSO
 
 * [mvdan/sh](https://github.com/mvdan/sh) for POSIX sh parsing
+* [stank](https://github.com/mcandre/stank) for more capable validation
