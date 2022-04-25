@@ -33,7 +33,7 @@ https://github.com/mcandre/slick/releases
 
 # BUILDTIME REQUIREMENTS
 
-* [Go](https://golang.org/) 1.11+
+* [Go](https://golang.org/) 1.17+
 
 ## Recommended
 
