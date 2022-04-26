@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
-	"path"
 
 	"github.com/magefile/mage/mg"
 	"github.com/mcandre/slick"
@@ -19,6 +18,9 @@ var artifactsPath = "bin"
 
 // Default references the default build task.
 var Default = Test
+
+// Audit runs a security audit.
+func Audit() error { return mageextras.SnykTest() }
 
 // UnitTests runs the unit test suite.
 func UnitTest() error { return mageextras.UnitTest() }
@@ -89,18 +91,11 @@ var portBasename = fmt.Sprintf("slick-%s", slick.Version)
 // repoNamespace identifies the Go namespace for this project.
 var repoNamespace = "github.com/mcandre/slick"
 
-// Xgo cross-compiles (c)Go binaries with additional targets enabled.
-func Xgo() error {
-	artifactsPathDist := path.Join(artifactsPath, portBasename)
-
-	return mageextras.Xgo(
-		artifactsPathDist,
-		"github.com/mcandre/slick/cmd/slick",
-	)
-}
+// Factorio cross-compiles Go binaries for a multitude of platforms.
+func Factorio() error { return mageextras.Factorio(portBasename) }
 
 // Port builds and compresses artifacts.
-func Port() error { mg.Deps(Xgo); return mageextras.Archive(portBasename, artifactsPath) }
+func Port() error { mg.Deps(Factorio); return mageextras.Archive(portBasename, artifactsPath) }
 
 // Install builds and installs Go applications.
 func Install() error { return mageextras.Install() }
