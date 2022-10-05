@@ -37,10 +37,6 @@ $ go install github.com/mcandre/karp/cmd/karp@latest
 
 (None)
 
-# BUILDTIME REQUIREMENTS
-
-* [Go](https://golang.org/) 1.17+
-
 # CONTRIBUTING
 
 For more information on developing slick itself, see [DEVELOPMENT.md](DEVELOPMENT.md).
