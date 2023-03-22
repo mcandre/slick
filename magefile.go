@@ -74,6 +74,9 @@ func Errcheck() error { return mageextras.Errcheck("-blank") }
 // Nakedret runs nakedret.
 func Nakedret() error { return mageextras.Nakedret("-l", "0") }
 
+// Staticcheck runs staticcheck.
+func Staticcheck() error { return mageextras.Staticcheck() }
+
 // Lint runs the lint suite.
 func Lint() error {
 	mg.Deps(GoVet)
@@ -82,6 +85,7 @@ func Lint() error {
 	mg.Deps(GoImports)
 	mg.Deps(Errcheck)
 	mg.Deps(Nakedret)
+	mg.Deps(Staticcheck)
 	return nil
 }
 
