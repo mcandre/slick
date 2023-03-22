@@ -30,7 +30,7 @@ https://github.com/mcandre/slick/releases
 # INSTALL FROM SOURCE
 
 ```console
-$ go install github.com/mcandre/karp/cmd/karp@latest
+$ go install github.com/mcandre/slick/cmd/slick@latest
 ```
 
 # RUNTIME REQUIREMENTS
