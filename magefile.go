@@ -1,3 +1,4 @@
+//go:build mage
 // +build mage
 
 package main
@@ -9,8 +10,8 @@ import (
 	"os/exec"
 
 	"github.com/magefile/mage/mg"
+	mageextras "github.com/mcandre/mage-extras"
 	"github.com/mcandre/slick"
-	"github.com/mcandre/mage-extras"
 )
 
 // artifactsPath describes where artifacts are produced.
@@ -51,7 +52,10 @@ var CoverHTML = "cover.html"
 var CoverProfile = "cover.out"
 
 // CoverageHTML generates HTML formatted coverage data.
-func CoverageHTML() error { mg.Deps(CoverageProfile); return mageextras.CoverageHTML(CoverHTML, CoverProfile) }
+func CoverageHTML() error {
+	mg.Deps(CoverageProfile)
+	return mageextras.CoverageHTML(CoverHTML, CoverProfile)
+}
 
 // CoverageProfile generates raw coverage data.
 func CoverageProfile() error { return mageextras.CoverageProfile(CoverProfile) }
@@ -77,6 +81,9 @@ func Nakedret() error { return mageextras.Nakedret("-l", "0") }
 // Staticcheck runs staticcheck.
 func Staticcheck() error { return mageextras.Staticcheck() }
 
+// Unmake runs unmake.
+func Unmake() error { return exec.Command("unmake", "makefile").Run() }
+
 // Lint runs the lint suite.
 func Lint() error {
 	mg.Deps(GoVet)
@@ -86,6 +93,7 @@ func Lint() error {
 	mg.Deps(Errcheck)
 	mg.Deps(Nakedret)
 	mg.Deps(Staticcheck)
+	mg.Deps(Unmake)
 	return nil
 }
 
