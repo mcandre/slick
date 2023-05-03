@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/magefile/mage v1.14.0
-	github.com/mcandre/mage-extras v0.0.10
+	github.com/mcandre/mage-extras v0.0.12
 	mvdan.cc/sh v2.6.4+incompatible
 )
 
