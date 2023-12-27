@@ -35,7 +35,7 @@ $ go install github.com/mcandre/slick/cmd/slick@latest
 
 # LICENSE
 
-FreeBSD
+BSD-2-Clause
 
 # RUNTIME REQUIREMENTS
 
