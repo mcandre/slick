@@ -33,6 +33,10 @@ https://github.com/mcandre/slick/releases
 $ go install github.com/mcandre/slick/cmd/slick@latest
 ```
 
+# LICENSE
+
+FreeBSD
+
 # RUNTIME REQUIREMENTS
 
 (None)
