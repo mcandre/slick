@@ -7,17 +7,11 @@ import (
 
 // DockerScout executes a docker security audit.
 func DockerScout(args ...string) error {
-	cmdName := "docker"
-
-	cmdParameters := []string{cmdName}
-	cmdParameters = append(cmdParameters, "scout")
-	cmdParameters = append(cmdParameters, "cves")
-	cmdParameters = append(cmdParameters, args...)
-
-	cmd := exec.Command(cmdName)
-	cmd.Args = cmdParameters
+	cmd := exec.Command("docker")
+	cmd.Args = append(cmd.Args, "scout")
+	cmd.Args = append(cmd.Args, "cves")
+	cmd.Args = append(cmd.Args, args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-
 	return cmd.Run()
 }

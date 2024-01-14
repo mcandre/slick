@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/mcandre/slick"
-	"mvdan.cc/sh/syntax"
+	"mvdan.cc/sh/v3/syntax"
 
 	"bufio"
 	"flag"
