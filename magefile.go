@@ -21,13 +21,13 @@ var Default = Test
 // Govulncheck runs govulncheck.
 func Govulncheck() error { return mageextras.Govulncheck("./...") }
 
-// SnykTest runs Snyk SCA.
-func SnykTest() error { return mageextras.SnykTest() }
+// Snyk runs Snyk SCA.
+func Snyk() error { return mageextras.SnykTest() }
 
 // Audit runs a security audit.
 func Audit() error {
 	mg.Deps(Govulncheck)
-	return SnykTest()
+	return Snyk()
 }
 
 // UnitTests runs the unit test suite.
