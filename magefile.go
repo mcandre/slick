@@ -19,7 +19,7 @@ var artifactsPath = "bin"
 var Default = Test
 
 // Govulncheck runs govulncheck.
-func Govulncheck() error { return mageextras.Govulncheck("./...") }
+func Govulncheck() error { return mageextras.Govulncheck("-scan", "package", "./...") }
 
 // Snyk runs Snyk SCA.
 func Snyk() error { return mageextras.SnykTest() }
