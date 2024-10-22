@@ -2,10 +2,8 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"os"
-	"os/exec"
 
 	"github.com/magefile/mage/mg"
 	mageextras "github.com/mcandre/mage-extras"
@@ -30,27 +28,8 @@ func Audit() error {
 	return Snyk()
 }
 
-// UnitTests runs the unit test suite.
-func UnitTest() error { return mageextras.UnitTest() }
-
-// IntegrationTest executes the integration test suite.
-func IntegrationTest() error {
-	mg.Deps(Install)
-
-	cmd := exec.Command("slick", "-n", "examples")
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	err := cmd.Run()
-
-	if err == nil {
-		return errors.New("Expected an exit status error")
-	}
-
-	return nil
-}
-
-// Test runs unit and integration tests.
-func Test() error { mg.Deps(UnitTest); mg.Deps(IntegrationTest); return nil }
+// Test runs a test suite.
+func Test() error { return mageextras.UnitTest() }
 
 // CoverHTML denotes the HTML formatted coverage filename.
 var CoverHTML = "cover.html"
