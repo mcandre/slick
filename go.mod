@@ -1,6 +1,6 @@
 module github.com/mcandre/slick
 
-go 1.24.2
+go 1.24.4
 
 require (
 	github.com/magefile/mage v1.15.0
