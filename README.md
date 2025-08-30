@@ -51,3 +51,5 @@ For more information on developing slick itself, see [DEVELOPMENT.md](DEVELOPMEN
 
 * [mvdan/sh](https://github.com/mvdan/sh) for POSIX sh parsing
 * [stank](https://github.com/mcandre/stank) for more capable validation
+
+🌀
