@@ -1,5 +1,7 @@
 # slick: a CI-ready shell language syntax checker
 
+![squirtle squad](squirtle-squad.png)
+
 # EXAMPLES
 
 ```console
