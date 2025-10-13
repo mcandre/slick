@@ -16,8 +16,8 @@ jobs:
     - uses: "actions/setup-go@v5"
       with:
         go-version: "1.24.6"
-    - name: "provision go tools"
-      run: "make go"
+    - name: "provision dev tools"
+      run: "./install"
     - name: "install snyk"
       run: |
         sudo curl -Lo /bin/snyk https://downloads.snyk.io/cli/stable/snyk-linux
