@@ -1,6 +1,12 @@
 # slick: a CI-ready shell language syntax checker
 
+[![Donate](https://img.shields.io/badge/GUMROAD-36a9ae?style=flat&logo=gumroad&logoColor=white)](https://mcandre.gumroad.com/)
+
 ![squirtle squad](squirtle-squad.png)
+
+# SUMMARY
+
+slick provides a reliable syntax checker for pure POSIX `sh` scripts, as `sh` itself is often aliased with superset languages from `ash` to `zsh`.
 
 # EXAMPLES
 
