@@ -3,6 +3,7 @@
 .editorconfig
 .rubberstamp
 cover.html
+tuggy.toml
 bin/
 examples/
 .github/
