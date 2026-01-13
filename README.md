@@ -43,10 +43,6 @@ See [INSTALL.md](INSTALL.md).
 
 BSD-2-Clause
 
-# CONTRIBUTING
-
-For more information on developing slick itself, see [DEVELOPMENT.md](DEVELOPMENT.md).
-
 # SEE ALSO
 
 * [mvdan/sh](https://github.com/mvdan/sh) for POSIX sh parsing
