@@ -1,6 +1,6 @@
 # slick: a CI-ready shell language syntax checker
 
-[![Donate](https://img.shields.io/badge/GUMROAD-36a9ae?style=flat&logo=gumroad&logoColor=white)](https://mcandre.gumroad.com/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/n4jm4/slick)](https://hub.docker.com/r/n4jm4/slick) [![Donate](https://img.shields.io/badge/GUMROAD-36a9ae?style=flat&logo=gumroad&logoColor=white)](https://mcandre.gumroad.com/)
 
 ![squirtle squad](squirtle-squad.png)
 
