@@ -1,6 +1,6 @@
 # slick: a CI-ready shell language syntax checker
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/n4jm4/slick)](https://hub.docker.com/r/n4jm4/slick) [![Donate](https://img.shields.io/badge/GUMROAD-36a9ae?style=flat&logo=gumroad&logoColor=white)](https://mcandre.gumroad.com/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/n4jm4/slick)](https://hub.docker.com/r/n4jm4/slick) [![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white)](https://pkg.go.dev/github.com/mcandre/slick) [![license](https://img.shields.io/badge/license-BSD-3)](LICENSE.md) [![Donate](https://img.shields.io/badge/GUMROAD-36a9ae?style=flat&logo=gumroad&logoColor=white)](https://mcandre.gumroad.com/)
 
 ![squirtle squad](squirtle-squad.png)
 
@@ -31,17 +31,9 @@ slick provides an alternative to `sh -n`, which is problematic for a number of m
 * `sh` is hardly ever a bare bones POSIX sh interpreter on most UNIX systems, but usually soft linked to `bash`, `ksh`, `ash`, or even stranger things. So anyone genuinely interested in vetting their `#!/bin/sh` scripts for compliance risks getting false negative scans for scripts that actually contain bashisms, kshisms, and so on. By contrast, `slick` guarantees pure POSIX parsing, so that scripts are scanned consistently regardless of the particular environment configuration.
 * `sh` is difficult to obtain in Windows. Cygwin-like environments are themselves difficult to setup. Should a unix, Linux, Windows, or other system desire syntax checking, `slick` is easy to obtain by gox ports, or through the wonderfully cross-platform Go toolchain.
 
-# API DOCUMENTATION
-
-https://pkg.go.dev/github.com/mcandre/slick
-
 # INSTALLATION
 
 See [INSTALL.md](INSTALL.md).
-
-# LICENSE
-
-BSD-2-Clause
 
 # SEE ALSO
 
