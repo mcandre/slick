@@ -8,14 +8,14 @@ import (
 	"github.com/mcandre/mx"
 )
 
-// Default references the default build task.
-var Default = Test
-
 // CoverHTML denotes the HTML formatted coverage filename.
-var CoverHTML = "cover.html"
+const CoverHTML = "cover.html"
 
 // CoverProfile denotes the raw coverage data filename.
-var CoverProfile = "cover.out"
+const CoverProfile = "cover.out"
+
+// Default references the default build task.
+var Default = Test
 
 // Govulncheck runs govulncheck.
 func Govulncheck() error { return sh.RunV("govulncheck", "-scan", "package", "./...") }
