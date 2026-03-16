@@ -3,28 +3,13 @@
 package main
 
 import (
-	"fmt"
-	"os"
-
 	"github.com/magefile/mage/mg"
-	mageextras "github.com/mcandre/mage-extras"
-	"github.com/mcandre/slick"
+	"github.com/magefile/mage/sh"
+	"github.com/mcandre/mx"
 )
-
-// artifactsPath describes where artifacts are produced.
-var artifactsPath = "bin"
 
 // Default references the default build task.
 var Default = Test
-
-// Govulncheck runs govulncheck.
-func Govulncheck() error { return mageextras.Govulncheck("-scan", "package", "./...") }
-
-// Audit runs a security audit.
-func Audit() error { return Govulncheck() }
-
-// Test runs a test suite.
-func Test() error { return mageextras.UnitTest() }
 
 // CoverHTML denotes the HTML formatted coverage filename.
 var CoverHTML = "cover.html"
@@ -32,61 +17,44 @@ var CoverHTML = "cover.html"
 // CoverProfile denotes the raw coverage data filename.
 var CoverProfile = "cover.out"
 
+// Govulncheck runs govulncheck.
+func Govulncheck() error { return sh.RunV("govulncheck", "-scan", "package", "./...") }
+
+// Audit runs a security audit.
+func Audit() error { return Govulncheck() }
+
+// Test runs a test suite.
+func Test() error { return mx.UnitTest() }
+
 // CoverageHTML generates HTML formatted coverage data.
 func CoverageHTML() error {
 	mg.Deps(CoverageProfile)
-	return mageextras.CoverageHTML(CoverHTML, CoverProfile)
+	return mx.CoverageHTML(CoverHTML, CoverProfile)
 }
 
 // CoverageProfile generates raw coverage data.
-func CoverageProfile() error { return mageextras.CoverageProfile(CoverProfile) }
+func CoverageProfile() error { return mx.CoverageProfile(CoverProfile) }
 
 // Deadcode runs deadcode.
-func Deadcode() error { return mageextras.Deadcode("./...") }
-
-// DockerBuild creates local Docker buildx images.
-func DockerBuild() error {
-	return mageextras.Tuggy(
-		"-t", fmt.Sprintf("n4jm4/slick:%s", slick.Version),
-		"--load",
-	)
-}
-
-// DockerPush creates and tag aliases remote Docker buildx images.
-func DockerPush() error {
-	return mageextras.Tuggy(
-		"-t", fmt.Sprintf("n4jm4/slick:%s", slick.Version),
-		"-a", "n4jm4/slick",
-		"--push",
-	)
-}
-
-// DockerTest creates and tag aliases remote test Docker buildx images.
-func DockerTest() error {
-	if err := mageextras.Tuggy("-t", "n4jm4/slick:test", "--load"); err != nil {
-		return err
-	}
-
-	return mageextras.Tuggy("-t", "n4jm4/slick:test", "--push")
-}
+func Deadcode() error { return sh.RunV("deadcode", "./...") }
 
 // GoImports runs goimports.
-func GoImports() error { return mageextras.GoImports("-w") }
+func GoImports() error { return mx.GoImports("-w") }
 
 // GoVet runs default go vet analyzers.
-func GoVet() error { return mageextras.GoVet() }
+func GoVet() error { return mx.GoVet() }
 
 // Errcheck runs errcheck.
-func Errcheck() error { return mageextras.Errcheck("-blank") }
+func Errcheck() error { return sh.RunV("errcheck", "-blank") }
 
 // Nakedret runs nakedret.
-func Nakedret() error { return mageextras.Nakedret("-l", "0") }
+func Nakedret() error { return mx.Nakedret("-l", "0") }
 
 // Shadow runs go vet with shadow checks enabled.
-func Shadow() error { return mageextras.GoVetShadow() }
+func Shadow() error { return mx.GoVetShadow() }
 
 // Staticcheck runs staticcheck.
-func Staticcheck() error { return mageextras.Staticcheck("./...") }
+func Staticcheck() error { return sh.RunV("staticcheck", "./...") }
 
 // Lint runs the lint suite.
 func Lint() error {
@@ -100,42 +68,20 @@ func Lint() error {
 	return nil
 }
 
-// portBasename labels the artifact basename.
-var portBasename = fmt.Sprintf("slick-%s", slick.Version)
-
-// repoNamespace identifies the Go namespace for this project.
-var repoNamespace = "github.com/mcandre/slick"
-
-// Factorio cross-compiles Go binaries for a multitude of platforms.
-func Factorio() error { return mageextras.Factorio(portBasename) }
-
-// Port builds and compresses artifacts.
-func Port() error {
-	mg.Deps(Factorio);
-
-	return mageextras.Chandler(
-		"-C",
-		artifactsPath,
-		"-czf",
-		fmt.Sprintf("%s.tgz", portBasename),
-		portBasename,
-	)
-}
-
 // Install builds and installs Go applications.
-func Install() error { return mageextras.Install() }
+func Install() error { return mx.Install() }
 
 // Uninstall deletes installed Go applications.
-func Uninstall() error { return mageextras.Uninstall("slick") }
+func Uninstall() error { return mx.Uninstall("slick") }
 
 // CleanCoverage deletes coverage data.
 func CleanCoverage() error {
-	if err := os.RemoveAll(CoverHTML); err != nil {
+	if err := sh.Rm(CoverHTML); err != nil {
 		return err
 	}
 
-	return os.RemoveAll(CoverProfile)
+	return sh.Rm(CoverProfile)
 }
 
 // Clean deletes artifacts.
-func Clean() error { mg.Deps(CleanCoverage); return os.RemoveAll(artifactsPath) }
+func Clean() error { return CleanCoverage() }
