@@ -1,4 +1,4 @@
 package slick
 
 // Version is semver.
-const Version = "0.0.19"
+const Version = "0.0.20"
