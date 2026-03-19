@@ -11,12 +11,12 @@ slick provides a reliable syntax checker for pure POSIX `sh` scripts, as `sh` it
 # EXAMPLES
 
 ```console
-$ slick -n examples; echo "$?"
+% slick -n examples; echo "$?"
 2017/09/14 17:46:09 examples/apples.bash:2:8: arrays are a bash feature
 2017/09/14 17:46:09 examples/hello.sh:2:6: reached EOF without closing quote '
 1
 
-$ slick -help
+% slick -help
   -help
         Show usage information
   -n    Validate syntax
@@ -41,13 +41,17 @@ go install github.com/mcandre/slick/cmd/slick@latest
 
 * [go](https://go.dev/)
 
-For information on developing slick, see our [development guide](DEVELOPMENT.md).
+## Postinstall
+
+Register output of `go env GOBIN` to `PATH` environment variable.
+
+For details on building from source, see our [development guide](DEVELOPMENT.md).
 
 # RESOURCES
 
 Prior art and personal plugs.
 
-* [mcandre/todolint](https://github.com/mcandre/todolint) - find software bugs
-* [mvdan/sh](https://github.com/mvdan/sh) - parse POSIX sh scripts
+* [mcandre/linters](https://github.com/mcandre/linters) - curated linter collection
+* [mvdan/sh](https://github.com/mvdan/sh) - Go POSIX sh parser
 
 🌀
