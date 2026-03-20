@@ -59,9 +59,3 @@ mage lint
 ```sh
 mage test
 ```
-
-## Clean Workspace
-
-```sh
-mage clean
-```

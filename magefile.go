@@ -3,8 +3,6 @@
 package main
 
 import (
-	"os"
-
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
 	"github.com/mcandre/mx"
@@ -20,25 +18,7 @@ var Default = Build
 func Audit() error { return Govulncheck() }
 
 // Build compiles Go projects.
-func Build() error {
-        dest := ArtifactsPath
-
-        if d, ok := os.LookupEnv("DEST"); ok && d != "" {
-                dest = d
-        }
-
-        if err := os.MkdirAll(dest, 0755); err != nil {
-                return err
-        }
-
-        return sh.RunV("go", "build", "-o", dest, "./...")
-}
-
-// Clean deletes artifacts.
-func Clean() error { return CleanBuild() }
-
-// CleanBuild removes build artifacts.
-func CleanBuild() error { return os.RemoveAll(ArtifactsPath) }
+func Build() error { return sh.RunV("go", "build", "./...") }
 
 // Deadcode runs deadcode.
 func Deadcode() error { return sh.RunV("deadcode", "./...") }
