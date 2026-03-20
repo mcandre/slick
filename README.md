@@ -1,6 +1,6 @@
 # slick: a CI-ready shell language syntax checker
 
-[![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white)](https://pkg.go.dev/github.com/mcandre/slick) [![Test](https://github.com/mcandre/slick/actions/workflows/test.yml/badge.svg)](https://github.com/mcandre/slick/actions/workflows/test.yml) [![license](https://img.shields.io/badge/license-BSD-3)](LICENSE.md)
+[![go.dev reference](https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white)](https://pkg.go.dev/github.com/mcandre/slick) [![Test](https://github.com/mcandre/slick/actions/workflows/test.yml/badge.svg)](https://github.com/mcandre/slick/actions/workflows/test.yml) [![license](https://img.shields.io/badge/license-BSD-0)](LICENSE.md)
 
 ![squirtle squad](squirtle-squad.png)
 
@@ -45,7 +45,7 @@ go install github.com/mcandre/slick/cmd/slick@latest
 
 Register output of `go env GOBIN` to `PATH` environment variable.
 
-For details on building from source, see our [development guide](DEVELOPMENT.md).
+For details on building from source, see [development](DEVELOPMENT.md).
 
 # RESOURCES
 

@@ -1,4 +1,4 @@
-# DEVELOPMENT GUIDE
+# DEVELOPMENT
 
 We follow standard, `go` based operations for compiling and unit testing Go code.
 
@@ -14,7 +14,7 @@ For advanced operations, such as linting, we further supplement with some softwa
 
 ## Recommended
 
-* [asdf](https://asdf-vm.com/) 0.18
+* [asdf](https://asdf-vm.com/)
 
 ## Postinstall
 
