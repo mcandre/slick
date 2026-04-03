@@ -45,7 +45,7 @@ go install github.com/mcandre/slick/cmd/slick@latest
 
 Register output of `go env GOBIN` to `PATH` environment variable.
 
-For details on building from source, see [development](DEVELOPMENT.md).
+For details on building from source, see [DEVELOPMENT](DEVELOPMENT.md).
 
 # RESOURCES
 
